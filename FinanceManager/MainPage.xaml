@@ -7,7 +7,23 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    </Grid>
+    <SplitView IsPaneOpen="True" DisplayMode="Inline">
+        <Grid>
+            <Frame x:Name="Main"/>
+        </Grid>
+        <SplitView.Pane>
+            <ListView x:Name="Pages" 
+                      SelectionMode="Single" 
+                      IsItemClickEnabled="False" 
+                      SelectionChanged="Pages_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock Text="{Binding}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </SplitView.Pane>
+    </SplitView>
 </Page>
